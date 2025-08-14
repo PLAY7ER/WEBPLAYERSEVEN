@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>PLAYER 7 WEB</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PLAYER 7 — Sitio Oficial</title>
+<meta name="description" content="PLAYER 7 — música electrónica / melodic techno. Escuchá los últimos lanzamientos, seguinos y contactanos." />
+
+<!-- Tipografía opcional (puedes quitar estas dos líneas si querés 100% nativo) -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f14;
+  --card:#0f1520aa;
+  --txt:#e6f2ff;
+  --muted:#9fb3c8;
+  --acc1:#00f0ff;
+  --acc2:#ff3dc8;
+  --acc3:#aafc4b;
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--txt); background: radial-gradient(1200px 600px at 10% 0%, #0f1930 0, #0b0f14 40%, #070a0f 100%) fixed,
+  linear-gradient(120deg, #0b0f14, #0b0f14);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  line-height:1.5;
+}
+
+/* efecto malla neón sutil */
+body::before{
+  content:"";
+  position:fixed; inset:-20vmax;
+  background:
+    radial-gradient(40vmax 40vmax at 15% 20%, rgba(0,240,255,.12) 0 40%, transparent 70%) ,
+    radial-gradient(35vmax 35vmax at 85% 10%, rgba(255,61,200,.10) 0 40%, transparent 70%) ,
+    radial-gradient(45vmax 45vmax at 60% 75%, rgba(170,252,75,.08) 0 40%, transparent 70%);
+  filter: blur(40px);
+  pointer-events:none; z-index:-1;
+}
+
+/* NAV */
+.nav{
+  position:sticky; top:0; z-index:20;
+  backdrop-filter:saturate(140%) blur(10px);
+  background:linear-gradient(#0b0f1480,#0b0f1400);
+  border-bottom:1px solid #ffffff14;
+}
+.nav .wrap{
+  max-width:1100px; margin:0 auto; padding:14px 20px;
+  display:flex; align-items:center; gap:16px; justify-content:space-between;
+}
+.brand{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--txt);
+}
+.logo{
+  width:38px; height:38px; border-radius:10px;
+  background: conic-gradient(from 120deg, var(--acc1), var(--acc2), var(--acc3), var(--acc1));
+  box-shadow:0 0 24px -6px var(--acc1);
+}
+.brand span{
+  font-family: Orbitron, Inter, sans-serif; letter-spacing:.05em; font-weight:700; font-size:1.05rem;
+}
+.nav a.link{color:var(--txt); text-decoration:none; opacity:.85; margin:0 8px}
+.nav a.link:hover{opacity:1}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; border-radius:999px; text-decoration:none; color:#001018; font-weight:700;
+  background:linear-gradient(135deg,var(--acc1), #66f7ff);
+  box-shadow:0 6px 20px -6px rgba(0,240,255,.6);
+}
+.btn:active{transform:translateY(1px)}
+
+/* HERO */
+.hero{
+  max-width:1100px; margin:0 auto; padding:56px 20px 24px;
+  display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;
+}
+@media (max-width:900px){ .hero{ grid-template-columns:1fr; padding-top:36px } }
+.hero h1{
+  font-family: Orbitron, Inter, sans-serif;
+  font-size: clamp(2rem, 2.8rem, 6vw);
+  line-height:1.05; margin:0 0 12px;
+  text-shadow:0 0 22px rgba(0,240,255,.2);
+}
+.hero p{margin:0 0 18px; color:var(--muted)}
+.badges{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 8px}
+.badge{
+  font-size:.82rem; color:#001018; font-weight:700;
+  background:linear-gradient(135deg,var(--acc2),#ff79d9);
+  padding:6px 10px; border-radius:999px; opacity:.95;
+}
+.hero-card{
+  background:linear-gradient(180deg, #101725, #0c1220 60%, #0b111d);
+  border:1px solid #ffffff12; border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:16px; position:relative; overflow:hidden;
+}
+.hero-card .cover{
+  aspect-ratio:1.6/1; border-radius:12px; width:100%;
+  background: url('https://images.unsplash.com/photo-1460602594182-8568137446ce?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
+  outline:1px solid #ffffff12;
+}
+.hero-card .meta{
+  display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px;
+}
+.hero-card h3{margin:0; font-size:1rem}
+.hero-card .controls{display:flex; align-items:center; gap:10px}
+.icon-btn{
+  width:42px; height:42px; display:grid; place-items:center; border-radius:999px; cursor:pointer; border:none;
+  background: linear-gradient(135deg, #1b283f, #0f1627); color:var(--txt);
+  outline:1px solid #ffffff10; box-shadow: inset 0 0 0 2px #00000066;
+}
+.icon-btn:hover{outline-color:#ffffff25}
+
+/* SECCIONES */
+.section{max-width:1100px; margin:28px auto; padding:0 20px}
+.section h2{
+  font-family: Orbitron, Inter, sans-serif; margin:0 0 14px;
+  letter-spacing:.03em; font-size:1.35rem
+}
+.card{
+  background:var(--card);
+  border:1px solid #ffffff14; border-radius:var(--radius); box-shadow:var(--shadow);
+}
+.grid{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(12,1fr);
+}
+.grid .col-4{grid-column: span 4}
+.grid .col-6{grid-column: span 6}
+.grid .col-12{grid-column: span 12}
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(6,1fr)}
+  .grid .col-4{grid-column: span 6}
+  .grid .col-6{grid-column: span 6}
+}
+
+/* Tarjeta de track */
+.track{
+  display:flex; gap:14px; padding:12px; align-items:center;
+}
+.track .art{
+  width:84px; height:84px; border-radius:12px; flex:0 0 auto;
+  background:#0e1524 center/cover no-repeat;
+  outline:1px solid #ffffff16;
+}
+.track .info{min-width:0}
+.track .title{font-weight:700; margin:0 0 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.track .sub{color:var(--muted); font-size:.9rem; margin:0}
+.track .actions{margin-left:auto; display:flex; gap:8px}
+
+/* EMBEDS */
+.embed{
+  border:0; width:100%; height:352px; border-radius:12px; outline:1px solid #ffffff14;
+}
+
+/* SOCIALS */
+.socials{display:flex; flex-wrap:wrap; gap:10px}
+.social{
+  display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; text-decoration:none; color:var(--txt);
+  background:linear-gradient(135deg,#141e31,#0d1526); outline:1px solid #ffffff12;
+}
+.social svg{width:18px; height:18px}
+
+/* FOOTER */
+footer{margin:40px 0 30px; text-align:center; color:var(--muted); font-size:.9rem}
+footer a{color:var(--acc1); text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <div class="logo" aria-hidden="true"></div>
+      <span>PLAYER 7</span>
+    </a>
+    <div>
+      <a class="link" href="#lanzamiento">Lanzamiento</a>
+      <a class="link" href="#tracks">Tracks</a>
+      <a class="link" href="#social">Redes</a>
+      <a class="btn" href="https://open.spotify.com/artist/5MV2vByeAhnyKB8NLMdEpU" target="_blank" rel="noopener">Escuchar en Spotify</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top" class="hero">
+  <div>
+    <div class="badges">
+      <span class="badge">Melodic Techno</span>
+      <span class="badge" style="background:linear-gradient(135deg,var(--acc1),#7cfff7)">Techno</span>
+    </div>
+    <h1>Sonidos hipnóticos, bajos profundos.<br/>Bienvenid@s a <span style="color:var(--acc1)">PLAYER 7</span>.</h1>
+    <p>Proyecto electrónico con texturas ambientales y pegada de club. Seguí el viaje: lanzamientos, sesiones y próximas fechas.</p>
+    <div class="socials" style="margin-top:14px">
+      <a class="social" href="https://open.spotify.com/artist/5MV2vByeAhnyKB8NLMdEpU" target="_blank" rel="noopener" aria-label="Spotify">
+        <!-- icono spotify -->
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.9A10.1 10.1 0 1 0 22.1 12 10.1 10.1 0 0 0 12 1.9Zm4.63 14.58a.75.75 0 0 1-1.03.25 12.68 12.68 0 0 0-7.19-1.15.75.75 0 0 1-.22-1.48 14.13 14.13 0 0 1 8.03 1.28.75.75 0 0 1 .41 1.1Zm1.39-3.04a.95.95 0 0 1-1.3.31 16.29 16.29 0 0 0-9.24-1.51.95.95 0 0 1-.29-1.87 18.2 18.2 0 0 1 10.33 1.69.95.95 0 0 1 .5 1.38Zm.12-3.19a1.14 1.14 0 0 1-1.56.37c-3.2-1.86-7.2-2.28-11.84-1.25a1.14 1.14 0 1 1-.49-2.22c5.22-1.16 9.77-.67 13.26 1.45a1.14 1.14 0 0 1 .63 1.65Z"/></svg>
+        Spotify
+      </a>
+      <a class="social" href="https://soundcloud.com/o-c-player-seven" target="_blank" rel="noopener" aria-label="SoundCloud">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 9.5a4.5 4.5 0 0 1 4.5 4.5c0 1.93-1.24 3.56-2.96 4.16H6.26A3.76 3.76 0 0 1 2.5 14.4c0-1.86 1.32-3.43 3.09-3.75.35-2.35 2.39-4.15 4.83-4.15 1.68 0 3.17.84 4.06 2.12.75-.41 1.6-.62 2.52-.62Z"/></svg>
+        SoundCloud
+      </a>
+      <a class="social" href="https://www.youtube.com/@PLAYER7VEVO" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 7.6a4 4 0 0 0-2.8-2.8C18.9 4.2 12 4.2 12 4.2s-6.9 0-8.7.6A4 4 0 0 0 .5 7.6 41.4 41.4 0 0 0 0 12a41.4 41.4 0 0 0 .5 4.4 4 4 0 0 0 2.8 2.8c1.8.6 8.7.6 8.7.6s6.9 0 8.7-.6a4 4 0 0 0 2.8-2.8A41.4 41.4 0 0 0 24 12a41.4 41.4 0 0 0-.5-4.4ZM9.6 15.4V8.6L15.8 12l-6.2 3.4Z"/></svg>
+        YouTube
+      </a>
+      <a class="social" href="https://www.tiktok.com/@p.l.a.y.e.r.72" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 2a6.1 6.1 0 0 0 .2 1.6c.5 1.8 1.9 3.3 3.7 3.9.7.3 1.5.4 2.2.5v3.1a9.2 9.2 0 0 1-6-2.1v7.2a6.8 6.8 0 1 1-6.8-6.8c.3 0 .6 0 .9.1v3.3a3.6 3.6 0 1 0 2.7 3.5V2h3.1Z"/></svg>
+        TikTok
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="cover" id="cover" role="img" aria-label="Arte del último lanzamiento"></div>
+    <div class="meta">
+      <div>
+        <h3 style="margin:0">Último lanzamiento — <span style="color:var(--acc1)">X P L A N E T</span></h3>
+        <small style="color:var(--muted)">Player 7 • 2025</small>
+      </div>
+      <div class="controls">
+        <button class="icon-btn" id="playBtn" title="Reproducir/Pausar" aria-label="Reproducir">
+          ▶
+        </button>
+        <a class="icon-btn" href="https://soundcloud.com/o-c-player-seven/x-p-l-a-n-e-t-radio-edit" target="_blank" rel="noopener" title="Abrir en SoundCloud" aria-label="SoundCloud">SC</a>
+      </div>
+    </div>
+    <audio id="player" preload="none" crossorigin="anonymous">
+      <!-- Reemplaza por tu archivo MP3 o déjalo vacío para usar el embed de abajo -->
+      <!-- <source src="TU_ARCHIVO_MP3.mp3" type="audio/mpeg"/> -->
+    </audio>
+  </div>
+</header>
+
+<!-- LANZAMIENTO (EMBED) -->
+<section id="lanzamiento" class="section">
+  <h2>Escuchá el lanzamiento</h2>
+  <!-- Puedes reemplazar el iframe por uno de Spotify: https://open.spotify.com/embed/track/{id} -->
+  <iframe class="embed"
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/o-c-player-seven/x-p-l-a-n-e-t-radio-edit&color=%2300f0ff&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+    allow="autoplay" loading="lazy"></iframe>
+</section>
+
+<!-- TRACKS -->
+<section id="tracks" class="section">
+  <h2>Tracks destacados</h2>
+  <div class="grid">
+    <!-- Tarjeta 1 -->
+    <div class="card col-6 track">
+      <div class="art" style="background-image:url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=800&auto=format&fit=crop')"></div>
+      <div class="info">
+        <p class="title">N E P T U N O</p>
+        <p class="sub">Single • Player 7</p>
+      </div>
+      <div class="actions">
+        <a class="icon-btn" href="https://soundcloud.com/o-c-player-seven/n-e-p-t-u-n-o" target="_blank" rel="noopener" title="Escuchar en SoundCloud">SC</a>
+        <button class="icon-btn" data-preview="https://cdn.pixabay.com/download/audio/2021/09/16/audio_35b9c.mp3?filename=preview.mp3" title="Preview">▶</button>
+      </div>
+    </div>
+    <!-- Tarjeta 2 -->
+    <div class="card col-6 track">
+      <div class="art" style="background-image:url('https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?q=80&w=800&auto=format&fit=crop')"></div>
+      <div class="info">
+        <p class="title">U R A N O</p>
+        <p class="sub">Single • Player 7</p>
+      </div>
+      <div class="actions">
+        <a class="icon-btn" href="https://soundcloud.com/o-c-player-seven/u-r-a-n-o" target="_blank" rel="noopener" title="Escuchar en SoundCloud">SC</a>
+        <button class="icon-btn" data-preview="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1f5f3c.mp3?filename=preview2.mp3" title="Preview">▶</button>
+      </div>
+    </div>
+    <!-- Tarjeta 3 -->
+    <div class="card col-6 track">
+      <div class="art" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800&auto=format&fit=crop')"></div>
+      <div class="info">
+        <p class="title">S A T U R N O</p>
+        <p class="sub">Single • Player 7</p>
+      </div>
+      <div class="actions">
+        <a class="icon-btn" href="https://soundcloud.com/o-c-player-seven/s-a-t-u-r-n-o" target="_blank" rel="noopener" title="Escuchar en SoundCloud">SC</a>
+        <button class="icon-btn" data-preview="https://cdn.pixabay.com/download/audio/2021/09/15/audio_37f6d9.mp3?filename=preview3.mp3" title="Preview">▶</button>
+      </div>
+    </div>
+    <!-- Tarjeta 4 -->
+    <div class="card col-6 track">
+      <div class="art" style="background-image:url('https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=800&auto=format&fit=crop')"></div>
+      <div class="info">
+        <p class="title">X P L A N E T (Radio Edit)</p>
+        <p class="sub">Single • Player 7</p>
+      </div>
+      <div class="actions">
+        <a class="icon-btn" href="https://soundcloud.com/o-c-player-seven/x-p-l-a-n-e-t-radio-edit" target="_blank" rel="noopener" title="Escuchar en SoundCloud">SC</a>
+        <button class="icon-btn" data-preview="https://cdn.pixabay.com/download/audio/2022/03/10/audio_5b2ac7.mp3?filename=preview4.mp3" title="Preview">▶</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REDES -->
+<section id="social" class="section">
+  <h2>Seguinos</h2>
+  <div class="socials">
+    <a class="social" href="https://open.spotify.com/artist/5MV2vByeAhnyKB8NLMdEpU" target="_blank" rel="noopener" aria-label="Spotify">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.9A10.1 10.1 0 1 0 22.1 12 10.1 10.1 0 0 0 12 1.9Zm4.63 14.58a.75.75 0 0 1-1.03.25 12.68 12.68 0 0 0-7.19-1.15.75.75 0 0 1-.22-1.48 14.13 14.13 0 0 1 8.03 1.28.75.75 0 0 1 .41 1.1Zm1.39-3.04a.95.95 0 0 1-1.3.31 16.29 16.29 0 0 0-9.24-1.51.95.95 0 0 1-.29-1.87 18.2 18.2 0 0 1 10.33 1.69.95.95 0 0 1 .5 1.38Zm.12-3.19a1.14 1.14 0 0 1-1.56.37c-3.2-1.86-7.2-2.28-11.84-1.25a1.14 1.14 0 1 1-.49-2.22c5.22-1.16 9.77-.67 13.26 1.45a1.14 1.14 0 0 1 .63 1.65Z"/></svg>
+      Spotify
+    </a>
+    <a class="social" href="https://soundcloud.com/o-c-player-seven" target="_blank" rel="noopener"> <!-- soundcloud icon reused arriba -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 9.5a4.5 4.5 0 0 1 4.5 4.5c0 1.93-1.24 3.56-2.96 4.16H6.26A3.76 3.76 0 0 1 2.5 14.4c0-1.86 1.32-3.43 3.09-3.75.35-2.35 2.39-4.15 4.83-4.15 1.68 0 3.17.84 4.06 2.12.75-.41 1.6-.62 2.52-.62Z"/></svg>
+      SoundCloud
+    </a>
+    <a class="social" href="https://www.youtube.com/@PLAYER7VEVO" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 7.6a4 4 0 0 0-2.8-2.8C18.9 4.2 12 4.2 12 4.2s-6.9 0-8.7.6A4 4 0 0 0 .5 7.6 41.4 41.4 0 0 0 0 12a41.4 41.4 0 0 0 .5 4.4 4 4 0 0 0 2.8 2.8c1.8.6 8.7.6 8.7.6s6.9 0 8.7-.6a4 4 0 0 0 2.8-2.8A41.4 41.4 0 0 0 24 12a41.4 41.4 0 0 0-.5-4.4ZM9.6 15.4V8.6L15.8 12l-6.2 3.4Z"/></svg>
+      YouTube
+    </a>
+    <a class="social" href="https://www.tiktok.com/@p.l.a.y.e.r.72" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 2a6.1 6.1 0 0 0 .2 1.6c.5 1.8 1.9 3.3 3.7 3.9.7.3 1.5.4 2.2.5v3.1a9.2 9.2 0 0 1-6-2.1v7.2a6.8 6.8 0 1 1-6.8-6.8c.3 0 .6 0 .9.1v3.3a3.6 3.6 0 1 0 2.7 3.5V2h3.1Z"/></svg>
+      TikTok
+    </a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> PLAYER 7 — Buenos Aires. Argentina <a href="#top">Volver arriba ↑</a>
+</footer>
+
+<script>
+// año dinámico
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Reproducir/pausar del bloque HERO si pones una fuente mp3
+const player = document.getElementById('player');
+const playBtn = document.getElementById('playBtn');
+playBtn?.addEventListener('click', ()=>{
+  if(!player.src){ // si no cargaste mp3, abrimos el embed
+    window.open('https://soundcloud.com/o-c-player-seven/x-p-l-a-n-e-t-radio-edit','_blank');
+    return;
+  }
+  if(player.paused){ player.play(); playBtn.textContent='⏸'; }
+  else { player.pause(); playBtn.textContent='▶'; }
+});
+
+// Previews rápidos en tarjetas (usa audios de muestra; reemplaza por tus mp3 públicos)
+let previewAudio = new Audio();
+document.querySelectorAll('[data-preview]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const src = btn.getAttribute('data-preview');
+    if(previewAudio.src !== src){ previewAudio.src = src; }
+    if(previewAudio.paused){ previewAudio.play(); btn.textContent='⏸'; }
+    else { previewAudio.pause(); btn.textContent='▶'; }
+    // reset otros botones
+    document.querySelectorAll('[data-preview]').forEach(b=>{
+      if(b!==btn) b.textContent='▶';
+    });
+  });
+});
+
+// Consejo: si tus imágenes no cargan en CodePen, asegurate que:
+// 1) El link comience con https:// y sea público.
+// 2) Si usas GitHub, pegá el link RAW del archivo (raw.githubusercontent.com/...)
+// 3) No uses rutas locales (C:\... o file://)
+</script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
